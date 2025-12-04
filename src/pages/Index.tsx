@@ -32,7 +32,7 @@ and no matter what happens, you will always have your EJ.
 
 Mahal na mahal kita, Chi.
 Happy birthday, baby.
-I miss you more than you know.,
+I miss you more than you know.
   audioUrl: "/music/birthday-song.m4a",
 };
 
