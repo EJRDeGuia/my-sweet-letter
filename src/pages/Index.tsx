@@ -16,7 +16,8 @@ Remember this song? You shared it with me, and it was so good it got stuck in my
 
 “I love you without knowing how, or when, or from where.
 I love you straightforwardly, without complexities or pride;
-so I love you because I know no other way than this.” — Pablo Neruda
+so I love you because I know no other way than this.” 
+— Pablo Neruda
 
 I love you like that, quietly, deeply, and truthfully, without conditions, without hesitation. Because you bring peace into my life. Because you see me in ways no one else has ever seen me. Because even during our hard moments, choosing you always feels right. You make my days lighter, my heart calmer, and my world softer.
 
