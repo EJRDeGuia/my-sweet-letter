@@ -8,7 +8,7 @@ const LETTER_CONFIG = {
   recipientName: "Chichi",
   message: `HAPPY BIRTHDAY, BABY!!!!!!
 
-I know you don’t really like celebrating your birthday, and I feel the same about mine, but today is different. Today is yours. And even if you don’t want a big celebration, I still want to celebrate you. You deserve to feel loved, held, appreciated, and reminded of how special you are, especially to me.
+I know you don’t really like celebrating your birthday, and I feel the same about mine, but today is different. Even if you don’t want a big celebration, I still want to celebrate you. You deserve to feel loved, held, appreciated, and reminded of how special you are, especially to me.
 
 Sometimes we argue, sometimes we misunderstand each other, but through everything, I want you to remember one thing: I will always choose you. Out of all the uncertainties in my life, loving you has never been one of them. From the moment I met you, I just knew you were the girl I wanted to build something real with, something lasting, something forever.
 
@@ -21,7 +21,7 @@ so I love you because I know no other way than this.” — Pablo Neruda
 I love you like that, quietly, deeply, and truthfully, without conditions, without hesitation. Because you bring peace into my life. Because you see me in ways no one else has ever seen me. Because even during our hard moments, choosing you always feels right. You make my days lighter, my heart calmer, and my world softer.
 
 And baby,
-I want to love you with all that I am, my little Timmy.
+I want to love you with all that I am.
 
 I made this letter for you so that whenever you feel sad, lost, or drained, you can read this and remember one thing: you are never alone. I will always be by your side, backing you up, cheering for you, believing in you, holding you through every moment. You have me, fully.
 
@@ -30,7 +30,9 @@ I met you when I least expected to meet someone. Honestly, I had already given u
 I will forever be yours,
 and no matter what happens, you will always have your EJ.
 Mahal na mahal kita, Chi.
-Happy birthday, baby.
+
+Happy birthday, my little timmy.
+
 I miss you more than you know.`,
   
   audioUrl: "/music/birthday-song.m4a",
