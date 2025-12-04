@@ -21,34 +21,34 @@ interface FloatingEnvelopeProps {
 // Collage image configuration for easy customization
 const collageImages = [
   // Timmy face - BEHIND Happy Birthday at top center
-  { src: timmyFace, alt: "Timmy face", className: "absolute top-0 left-1/2 w-28 sm:w-40", style: { transform: "translateX(-50%) rotate(-3deg)", zIndex: 30 } },
+  { src: timmyFace, alt: "Timmy face", className: "absolute top-0 left-1/2 w-32 sm:w-44", style: { transform: "translateX(-50%) rotate(-3deg)", zIndex: 30 } },
   
   // Happy Birthday - prominent at top (in front of Timmy face)
-  { src: happyBirthday, alt: "Happy Birthday", className: "absolute top-4 left-1/2 w-44 sm:w-56", style: { transform: "translateX(-50%) rotate(-1deg)", zIndex: 40 } },
+  { src: happyBirthday, alt: "Happy Birthday", className: "absolute top-6 left-1/2 w-44 sm:w-56", style: { transform: "translateX(-50%) rotate(-1deg)", zIndex: 40 } },
   
   // Timmy with teddy - top left
-  { src: timmyTeddy, alt: "Timmy with teddy", className: "absolute top-4 left-0 w-24 sm:w-32", style: { transform: "rotate(6deg)", zIndex: 25 } },
+  { src: timmyTeddy, alt: "Timmy with teddy", className: "absolute top-2 left-2 w-28 sm:w-36", style: { transform: "rotate(6deg)", zIndex: 25 } },
   
-  // Timmy pig - top right
-  { src: timmyPig, alt: "Timmy and pig", className: "absolute top-8 right-0 w-24 sm:w-32", style: { transform: "rotate(-10deg)", zIndex: 22 } },
+  // Timmy pig - top right (moved more inside)
+  { src: timmyPig, alt: "Timmy and pig", className: "absolute top-4 right-4 w-28 sm:w-36", style: { transform: "rotate(-10deg)", zIndex: 22 } },
   
   // Timmy thumbs up - center left
-  { src: timmyThumbs, alt: "Timmy", className: "absolute top-[40%] left-[5%] w-28 sm:w-36", style: { transform: "rotate(3deg)", zIndex: 35 } },
+  { src: timmyThumbs, alt: "Timmy", className: "absolute top-[38%] left-[2%] w-32 sm:w-40", style: { transform: "rotate(3deg)", zIndex: 35 } },
   
-  // Cupcake - center right
-  { src: cupcake, alt: "Cupcake", className: "absolute top-[38%] right-[5%] w-24 sm:w-32", style: { transform: "rotate(8deg)", zIndex: 28 } },
+  // Cupcake - center right (moved more inside)
+  { src: cupcake, alt: "Cupcake", className: "absolute top-[40%] right-[12%] w-28 sm:w-36", style: { transform: "rotate(8deg)", zIndex: 28 } },
   
-  // Timmy with bag - middle left
-  { src: timmyBag, alt: "Timmy with bag", className: "absolute top-[58%] left-[25%] w-24 sm:w-28", style: { transform: "rotate(-5deg)", zIndex: 20 } },
+  // Timmy with bag - middle center-left
+  { src: timmyBag, alt: "Timmy with bag", className: "absolute top-[60%] left-[18%] w-28 sm:w-32", style: { transform: "rotate(-5deg)", zIndex: 20 } },
   
-  // Timmy christmas - middle right
-  { src: timmyChristmas, alt: "Timmy christmas", className: "absolute top-[55%] right-[8%] w-20 sm:w-26", style: { transform: "rotate(12deg)", zIndex: 18 } },
+  // Timmy christmas - bottom right (moved inside)
+  { src: timmyChristmas, alt: "Timmy christmas", className: "absolute bottom-2 right-4 w-28 sm:w-32", style: { transform: "rotate(10deg)", zIndex: 18 } },
   
   // Timmy yellow - bottom left
-  { src: timmyYellow, alt: "Timmy yellow", className: "absolute bottom-0 left-0 w-24 sm:w-32", style: { transform: "rotate(-5deg)", zIndex: 32 } },
+  { src: timmyYellow, alt: "Timmy yellow", className: "absolute bottom-0 left-2 w-28 sm:w-36", style: { transform: "rotate(-5deg)", zIndex: 32 } },
   
   // Timmy with cake - bottom center, large
-  { src: timmyCake, alt: "Timmy with cake", className: "absolute bottom-0 left-1/2 w-32 sm:w-44", style: { transform: "translateX(-50%) rotate(2deg)", zIndex: 38 } },
+  { src: timmyCake, alt: "Timmy with cake", className: "absolute bottom-0 left-1/2 w-36 sm:w-48", style: { transform: "translateX(-50%) rotate(2deg)", zIndex: 38 } },
 ];
 
 export const FloatingEnvelope = ({ message, recipientName }: FloatingEnvelopeProps) => {
