@@ -86,7 +86,7 @@ export const LetterContent = ({ message, recipientName, onClose }: LetterContent
               className="font-[var(--font-script)] text-3xl sm:text-4xl text-[hsl(var(--heart))] mb-8 opacity-0 animate-fade-in-up"
               style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
             >
-              My Dearest {recipientName},
+              Hello {recipientName},
             </h2>
 
             {/* Message body */}
