@@ -20,35 +20,35 @@ interface FloatingEnvelopeProps {
 
 // Collage image configuration for easy customization
 const collageImages = [
-  // Happy Birthday - prominent at top
-  { src: happyBirthday, alt: "Happy Birthday", className: "absolute top-2 left-1/2 w-36 sm:w-48", style: { transform: "translateX(-50%) rotate(-1deg)", zIndex: 40 } },
+  // Timmy face - BEHIND Happy Birthday at top center
+  { src: timmyFace, alt: "Timmy face", className: "absolute top-0 left-1/2 w-28 sm:w-40", style: { transform: "translateX(-50%) rotate(-3deg)", zIndex: 30 } },
   
-  // Large feature - Timmy thumbs up center-ish
-  { src: timmyThumbs, alt: "Timmy", className: "absolute top-[38%] left-[42%] w-20 sm:w-28", style: { transform: "translate(-50%, -50%) rotate(3deg)", zIndex: 35 } },
+  // Happy Birthday - prominent at top (in front of Timmy face)
+  { src: happyBirthday, alt: "Happy Birthday", className: "absolute top-4 left-1/2 w-44 sm:w-56", style: { transform: "translateX(-50%) rotate(-1deg)", zIndex: 40 } },
   
-  // Timmy face - large, bottom left area
-  { src: timmyFace, alt: "Timmy face", className: "absolute bottom-4 left-0 w-24 sm:w-32", style: { transform: "rotate(-8deg)", zIndex: 30 } },
+  // Timmy with teddy - top left
+  { src: timmyTeddy, alt: "Timmy with teddy", className: "absolute top-4 left-0 w-24 sm:w-32", style: { transform: "rotate(6deg)", zIndex: 25 } },
   
-  // Timmy with teddy - overlapping left
-  { src: timmyTeddy, alt: "Timmy with teddy", className: "absolute top-16 sm:top-20 left-2 w-16 sm:w-20", style: { transform: "rotate(6deg)", zIndex: 25 } },
+  // Timmy pig - top right
+  { src: timmyPig, alt: "Timmy and pig", className: "absolute top-8 right-0 w-24 sm:w-32", style: { transform: "rotate(-10deg)", zIndex: 22 } },
   
-  // Cupcake - right side, tilted
-  { src: cupcake, alt: "Cupcake", className: "absolute top-[45%] right-2 w-14 sm:w-18", style: { transform: "rotate(12deg)", zIndex: 28 } },
+  // Timmy thumbs up - center left
+  { src: timmyThumbs, alt: "Timmy", className: "absolute top-[40%] left-[5%] w-28 sm:w-36", style: { transform: "rotate(3deg)", zIndex: 35 } },
   
-  // Timmy yellow - bottom right
-  { src: timmyYellow, alt: "Timmy yellow", className: "absolute bottom-2 right-4 w-14 sm:w-18", style: { transform: "rotate(-5deg)", zIndex: 32 } },
+  // Cupcake - center right
+  { src: cupcake, alt: "Cupcake", className: "absolute top-[38%] right-[5%] w-24 sm:w-32", style: { transform: "rotate(8deg)", zIndex: 28 } },
   
-  // Timmy with cake - bottom center, overlapping
-  { src: timmyCake, alt: "Timmy with cake", className: "absolute bottom-0 left-[35%] w-24 sm:w-32", style: { transform: "translateX(-50%) rotate(2deg)", zIndex: 38 } },
+  // Timmy with bag - middle left
+  { src: timmyBag, alt: "Timmy with bag", className: "absolute top-[58%] left-[25%] w-24 sm:w-28", style: { transform: "rotate(-5deg)", zIndex: 20 } },
   
-  // Timmy pig - top right, small
-  { src: timmyPig, alt: "Timmy and pig", className: "absolute top-14 sm:top-16 right-4 w-16 sm:w-20", style: { transform: "rotate(-10deg)", zIndex: 22 } },
+  // Timmy christmas - middle right
+  { src: timmyChristmas, alt: "Timmy christmas", className: "absolute top-[55%] right-[8%] w-20 sm:w-26", style: { transform: "rotate(12deg)", zIndex: 18 } },
   
-  // Timmy with bag - left middle
-  { src: timmyBag, alt: "Timmy with bag", className: "absolute top-[55%] left-[8%] w-14 sm:w-16", style: { transform: "rotate(8deg)", zIndex: 20 } },
+  // Timmy yellow - bottom left
+  { src: timmyYellow, alt: "Timmy yellow", className: "absolute bottom-0 left-0 w-24 sm:w-32", style: { transform: "rotate(-5deg)", zIndex: 32 } },
   
-  // Timmy christmas - bottom right corner, small accent
-  { src: timmyChristmas, alt: "Timmy christmas", className: "absolute bottom-8 right-0 w-12 sm:w-14", style: { transform: "rotate(15deg)", zIndex: 18 } },
+  // Timmy with cake - bottom center, large
+  { src: timmyCake, alt: "Timmy with cake", className: "absolute bottom-0 left-1/2 w-32 sm:w-44", style: { transform: "translateX(-50%) rotate(2deg)", zIndex: 38 } },
 ];
 
 export const FloatingEnvelope = ({ message, recipientName }: FloatingEnvelopeProps) => {

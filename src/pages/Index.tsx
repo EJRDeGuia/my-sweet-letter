@@ -63,10 +63,6 @@ const Index = () => {
             recipientName={LETTER_CONFIG.recipientName} 
           />
 
-          {/* Subtle footer text */}
-          <p className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground/50 text-sm font-[var(--font-handwritten)]">
-            Made with love ♥
-          </p>
         </div>
 
         {/* Music toggle */}
