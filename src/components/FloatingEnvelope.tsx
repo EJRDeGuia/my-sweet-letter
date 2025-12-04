@@ -1,6 +1,15 @@
 import { useState, useRef } from "react";
 import { LetterContent } from "./LetterContent";
 
+// Import collage images
+import cupcake from "@/assets/collage/cupcake.png";
+import timmyTeddy from "@/assets/collage/timmy-teddy.png";
+import timmyThumbs from "@/assets/collage/timmy-thumbs.png";
+import happyBirthday from "@/assets/collage/happy-birthday.png";
+import timmyYellow from "@/assets/collage/timmy-yellow.png";
+import timmyCake from "@/assets/collage/timmy-cake.png";
+import timmyPig from "@/assets/collage/timmy-pig.png";
+
 interface FloatingEnvelopeProps {
   message: string;
   recipientName: string;
@@ -89,7 +98,7 @@ export const FloatingEnvelope = ({ message, recipientName }: FloatingEnvelopePro
     >
       {/* Main envelope container */}
       <div
-        className={`relative w-72 h-48 sm:w-96 sm:h-64 transition-transform duration-300 ${
+        className={`relative w-80 h-56 sm:w-[420px] sm:h-[280px] transition-transform duration-300 ${
           !isDragging ? "animate-float" : ""
         }`}
         style={{
@@ -113,31 +122,68 @@ export const FloatingEnvelope = ({ message, recipientName }: FloatingEnvelopePro
           {/* Decorative border */}
           <div className="absolute inset-2 border-2 border-dashed border-card/40 rounded-md pointer-events-none" />
           
-          {/* Cute heart seal */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-            <div className="relative">
-              <div className="absolute inset-0 bg-[hsl(var(--heart-glow))] rounded-full blur-lg animate-pulse-soft" />
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center bg-[hsl(var(--heart))] rounded-full shadow-lg animate-heart-beat">
-                <svg viewBox="0 0 24 24" fill="hsl(var(--primary-foreground))" className="w-8 h-8 sm:w-10 sm:h-10">
-                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          {/* Cute doodles */}
-          <svg className="absolute top-3 left-3 w-6 h-6 text-card/40" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-          </svg>
-          <svg className="absolute bottom-3 right-3 w-6 h-6 text-card/40" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-          </svg>
+          {/* ============ COLLAGE IMAGES ============ */}
           
-          {/* Small hearts */}
-          <svg className="absolute top-4 right-8 w-4 h-4 text-[hsl(var(--heart))]/50 animate-pulse-soft" viewBox="0 0 24 24" fill="currentColor">
+          {/* Happy Birthday text - top center */}
+          <img 
+            src={happyBirthday} 
+            alt="Happy Birthday" 
+            className="absolute top-3 left-1/2 -translate-x-1/2 w-32 sm:w-44 object-contain z-10 drop-shadow-md"
+            style={{ transform: "translateX(-50%) rotate(-2deg)" }}
+          />
+          
+          {/* Timmy with teddy - left side */}
+          <img 
+            src={timmyTeddy} 
+            alt="Timmy" 
+            className="absolute bottom-2 left-2 w-16 sm:w-20 object-contain z-20 drop-shadow-lg hover:scale-110 transition-transform"
+            style={{ transform: "rotate(-5deg)" }}
+          />
+          
+          {/* Cupcake - bottom right */}
+          <img 
+            src={cupcake} 
+            alt="Cupcake" 
+            className="absolute bottom-2 right-2 w-14 sm:w-16 object-contain z-20 drop-shadow-lg hover:scale-110 transition-transform"
+            style={{ transform: "rotate(5deg)" }}
+          />
+          
+          {/* Timmy with pig - top left corner */}
+          <img 
+            src={timmyPig} 
+            alt="Timmy and friend" 
+            className="absolute top-12 sm:top-14 left-1 w-14 sm:w-16 object-contain z-10 drop-shadow-md hover:scale-110 transition-transform"
+            style={{ transform: "rotate(-8deg)" }}
+          />
+          
+          {/* Timmy yellow - top right corner */}
+          <img 
+            src={timmyYellow} 
+            alt="Timmy" 
+            className="absolute top-12 sm:top-14 right-2 w-12 sm:w-14 object-contain z-10 drop-shadow-md hover:scale-110 transition-transform"
+            style={{ transform: "rotate(8deg)" }}
+          />
+          
+          {/* Timmy thumbs up - center */}
+          <img 
+            src={timmyThumbs} 
+            alt="Timmy thumbs up" 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 sm:w-24 object-contain z-30 drop-shadow-xl animate-wiggle"
+          />
+          
+          {/* Timmy with cake - bottom center */}
+          <img 
+            src={timmyCake} 
+            alt="Timmy with cake" 
+            className="absolute bottom-1 left-1/2 -translate-x-1/2 w-20 sm:w-24 object-contain z-20 drop-shadow-lg"
+            style={{ transform: "translateX(-50%)" }}
+          />
+
+          {/* Small hearts decoration */}
+          <svg className="absolute top-16 right-16 w-4 h-4 text-[hsl(var(--heart))]/60 animate-pulse-soft" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
           </svg>
-          <svg className="absolute bottom-6 left-8 w-3 h-3 text-[hsl(var(--heart))]/40 animate-pulse-soft" style={{ animationDelay: "0.5s" }} viewBox="0 0 24 24" fill="currentColor">
+          <svg className="absolute bottom-16 left-16 w-3 h-3 text-[hsl(var(--heart))]/50 animate-pulse-soft" style={{ animationDelay: "0.5s" }} viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
           </svg>
         </div>
