@@ -5,20 +5,23 @@ import { Sparkles } from "@/components/Sparkles";
 
 // ✨ CUSTOMIZE YOUR LETTER HERE ✨
 const LETTER_CONFIG = {
-  recipientName: "My Love", // Change to your girlfriend's name
-  message: `Happy Birthday, my beautiful angel! 🎂
+  recipientName: "Chichi",
+  message: `Hello Chichi,
 
-Today marks another year of your amazing existence, and I feel so incredibly lucky to be part of your journey. Every moment with you feels like a gift wrapped in sunshine and tied with starlight.
+HAPPY BIRTHDAY, BABY!!!!!!
 
-Your smile lights up my darkest days. Your laugh is my favorite melody. Your love is the greatest adventure I've ever known.
+I know you don't really like celebrating your birthday, and I completely understand. I feel the same way about mine. But today is your special day, and I can't help but be excited for you. I know we argue sometimes, but I want you to know that I will always choose you. I haven't been certain about many things in my life, but when I met you, I knew you were the girl I wanted to build a future with. We still have a lot ahead of us, but I know we can overcome anything. As long as we're together, we'll break through every challenge.
 
-I promise to be there through every sunrise and sunset, through every storm and rainbow. You are my today, my tomorrow, and my forever.
+"I love you without knowing how, or when, or from where.
+I love you straightforwardly, without complexities or pride;
+so I love you because I know no other way than this." — Pablo Neruda
 
-May this year bring you endless happiness, all your dreams come true, and even more reasons to smile. You deserve the entire universe, and I'll spend every day trying to give it to you.
+I love you in that same quiet, certain way, simply, deeply, and without conditions. I love you because you bring peace into my life, because you understand me in ways no one else does, and because even during our tough moments, choosing you always feels right. You make my days lighter, and you inspire me to become better every single day.
 
-Here's to another beautiful year of us. 💕`,
-  // Optional: Add your audio URL here (e.g., from a CDN or public folder)
-  audioUrl: "", // Example: "/music/song.mp3" or "https://example.com/song.mp3"
+Mahal na mahal kita, Chi. Happy birthday, baby. I miss you so much.
+
+-Ernest Judieanne`,
+  audioUrl: "/music/birthday-song.m4a",
 };
 
 const Index = () => {
@@ -54,7 +57,7 @@ const Index = () => {
           <h1 
             className="font-[var(--font-script)] text-3xl sm:text-4xl md:text-5xl text-[hsl(var(--heart))] mb-12 text-center animate-float-slow"
           >
-            A Letter For You ♥
+            Happy Birthday Chichi ♥
           </h1>
 
           {/* Envelope */}
