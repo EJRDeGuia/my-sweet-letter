@@ -9,11 +9,47 @@ import happyBirthday from "@/assets/collage/happy-birthday.png";
 import timmyYellow from "@/assets/collage/timmy-yellow.png";
 import timmyCake from "@/assets/collage/timmy-cake.png";
 import timmyPig from "@/assets/collage/timmy-pig.png";
+import timmyFace from "@/assets/collage/timmy-face.png";
+import timmyBag from "@/assets/collage/timmy-bag.png";
+import timmyChristmas from "@/assets/collage/timmy-christmas.png";
 
 interface FloatingEnvelopeProps {
   message: string;
   recipientName: string;
 }
+
+// Collage image configuration for easy customization
+const collageImages = [
+  // Happy Birthday - prominent at top
+  { src: happyBirthday, alt: "Happy Birthday", className: "absolute top-2 left-1/2 w-36 sm:w-48", style: { transform: "translateX(-50%) rotate(-1deg)", zIndex: 40 } },
+  
+  // Large feature - Timmy thumbs up center-ish
+  { src: timmyThumbs, alt: "Timmy", className: "absolute top-[38%] left-[42%] w-20 sm:w-28", style: { transform: "translate(-50%, -50%) rotate(3deg)", zIndex: 35 } },
+  
+  // Timmy face - large, bottom left area
+  { src: timmyFace, alt: "Timmy face", className: "absolute bottom-4 left-0 w-24 sm:w-32", style: { transform: "rotate(-8deg)", zIndex: 30 } },
+  
+  // Timmy with teddy - overlapping left
+  { src: timmyTeddy, alt: "Timmy with teddy", className: "absolute top-16 sm:top-20 left-2 w-16 sm:w-20", style: { transform: "rotate(6deg)", zIndex: 25 } },
+  
+  // Cupcake - right side, tilted
+  { src: cupcake, alt: "Cupcake", className: "absolute top-[45%] right-2 w-14 sm:w-18", style: { transform: "rotate(12deg)", zIndex: 28 } },
+  
+  // Timmy yellow - bottom right
+  { src: timmyYellow, alt: "Timmy yellow", className: "absolute bottom-2 right-4 w-14 sm:w-18", style: { transform: "rotate(-5deg)", zIndex: 32 } },
+  
+  // Timmy with cake - bottom center, overlapping
+  { src: timmyCake, alt: "Timmy with cake", className: "absolute bottom-0 left-[35%] w-24 sm:w-32", style: { transform: "translateX(-50%) rotate(2deg)", zIndex: 38 } },
+  
+  // Timmy pig - top right, small
+  { src: timmyPig, alt: "Timmy and pig", className: "absolute top-14 sm:top-16 right-4 w-16 sm:w-20", style: { transform: "rotate(-10deg)", zIndex: 22 } },
+  
+  // Timmy with bag - left middle
+  { src: timmyBag, alt: "Timmy with bag", className: "absolute top-[55%] left-[8%] w-14 sm:w-16", style: { transform: "rotate(8deg)", zIndex: 20 } },
+  
+  // Timmy christmas - bottom right corner, small accent
+  { src: timmyChristmas, alt: "Timmy christmas", className: "absolute bottom-8 right-0 w-12 sm:w-14", style: { transform: "rotate(15deg)", zIndex: 18 } },
+];
 
 export const FloatingEnvelope = ({ message, recipientName }: FloatingEnvelopeProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -96,9 +132,9 @@ export const FloatingEnvelope = ({ message, recipientName }: FloatingEnvelopePro
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Main envelope container */}
+      {/* Main envelope container - larger to accommodate collage */}
       <div
-        className={`relative w-80 h-56 sm:w-[420px] sm:h-[280px] transition-transform duration-300 ${
+        className={`relative w-80 h-60 sm:w-[480px] sm:h-[340px] transition-transform duration-300 ${
           !isDragging ? "animate-float" : ""
         }`}
         style={{
@@ -107,84 +143,44 @@ export const FloatingEnvelope = ({ message, recipientName }: FloatingEnvelopePro
       >
         {/* Envelope shadow */}
         <div 
-          className="absolute inset-0 rounded-lg blur-2xl opacity-40 -z-10"
+          className="absolute inset-0 rounded-2xl blur-3xl opacity-30 -z-10"
           style={{ 
             background: "hsl(var(--paper-shadow))",
-            transform: "translateY(20px) scale(0.9)",
+            transform: "translateY(24px) scale(0.85)",
           }}
         />
 
         {/* Envelope body */}
-        <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-[hsl(var(--envelope))] to-[hsl(var(--envelope-flap))] shadow-2xl overflow-hidden">
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[hsl(var(--envelope))] to-[hsl(var(--envelope-flap))] shadow-2xl overflow-hidden">
           {/* Paper texture overlay */}
-          <div className="absolute inset-0 opacity-30 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuNSIvPjwvc3ZnPg==')]" />
+          <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuNSIvPjwvc3ZnPg==')]" />
           
-          {/* Decorative border */}
-          <div className="absolute inset-2 border-2 border-dashed border-card/40 rounded-md pointer-events-none" />
+          {/* Subtle decorative border */}
+          <div className="absolute inset-3 border border-dashed border-card/20 rounded-xl pointer-events-none" />
           
           {/* ============ COLLAGE IMAGES ============ */}
-          
-          {/* Happy Birthday text - top center */}
-          <img 
-            src={happyBirthday} 
-            alt="Happy Birthday" 
-            className="absolute top-3 left-1/2 -translate-x-1/2 w-32 sm:w-44 object-contain z-10 drop-shadow-md"
-            style={{ transform: "translateX(-50%) rotate(-2deg)" }}
-          />
-          
-          {/* Timmy with teddy - left side */}
-          <img 
-            src={timmyTeddy} 
-            alt="Timmy" 
-            className="absolute bottom-2 left-2 w-16 sm:w-20 object-contain z-20 drop-shadow-lg hover:scale-110 transition-transform"
-            style={{ transform: "rotate(-5deg)" }}
-          />
-          
-          {/* Cupcake - bottom right */}
-          <img 
-            src={cupcake} 
-            alt="Cupcake" 
-            className="absolute bottom-2 right-2 w-14 sm:w-16 object-contain z-20 drop-shadow-lg hover:scale-110 transition-transform"
-            style={{ transform: "rotate(5deg)" }}
-          />
-          
-          {/* Timmy with pig - top left corner */}
-          <img 
-            src={timmyPig} 
-            alt="Timmy and friend" 
-            className="absolute top-12 sm:top-14 left-1 w-14 sm:w-16 object-contain z-10 drop-shadow-md hover:scale-110 transition-transform"
-            style={{ transform: "rotate(-8deg)" }}
-          />
-          
-          {/* Timmy yellow - top right corner */}
-          <img 
-            src={timmyYellow} 
-            alt="Timmy" 
-            className="absolute top-12 sm:top-14 right-2 w-12 sm:w-14 object-contain z-10 drop-shadow-md hover:scale-110 transition-transform"
-            style={{ transform: "rotate(8deg)" }}
-          />
-          
-          {/* Timmy thumbs up - center */}
-          <img 
-            src={timmyThumbs} 
-            alt="Timmy thumbs up" 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 sm:w-24 object-contain z-30 drop-shadow-xl animate-wiggle"
-          />
-          
-          {/* Timmy with cake - bottom center */}
-          <img 
-            src={timmyCake} 
-            alt="Timmy with cake" 
-            className="absolute bottom-1 left-1/2 -translate-x-1/2 w-20 sm:w-24 object-contain z-20 drop-shadow-lg"
-            style={{ transform: "translateX(-50%)" }}
-          />
+          {collageImages.map((img, index) => (
+            <img 
+              key={index}
+              src={img.src} 
+              alt={img.alt} 
+              className={`${img.className} object-contain drop-shadow-lg hover:scale-105 transition-transform duration-200`}
+              style={img.style}
+              draggable={false}
+            />
+          ))}
 
-          {/* Small hearts decoration */}
-          <svg className="absolute top-16 right-16 w-4 h-4 text-[hsl(var(--heart))]/60 animate-pulse-soft" viewBox="0 0 24 24" fill="currentColor">
+          {/* Subtle heart accents scattered */}
+          <svg className="absolute top-[30%] right-[15%] w-3 h-3 text-[hsl(var(--heart))]/40 animate-pulse-soft" style={{ zIndex: 5 }} viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
           </svg>
-          <svg className="absolute bottom-16 left-16 w-3 h-3 text-[hsl(var(--heart))]/50 animate-pulse-soft" style={{ animationDelay: "0.5s" }} viewBox="0 0 24 24" fill="currentColor">
+          <svg className="absolute bottom-[40%] left-[25%] w-2.5 h-2.5 text-[hsl(var(--heart))]/30 animate-pulse-soft" style={{ zIndex: 5, animationDelay: "0.7s" }} viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+          
+          {/* Tiny star accents */}
+          <svg className="absolute top-[60%] right-[30%] w-2 h-2 text-[hsl(var(--sparkle-1))]/50" style={{ zIndex: 5 }} viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
           </svg>
         </div>
 
@@ -198,19 +194,19 @@ export const FloatingEnvelope = ({ message, recipientName }: FloatingEnvelopePro
         >
           {/* Front of flap */}
           <div 
-            className="absolute inset-0 rounded-t-lg"
+            className="absolute inset-0 rounded-t-2xl"
             style={{
               background: "linear-gradient(180deg, hsl(var(--envelope-flap)) 0%, hsl(var(--envelope)) 100%)",
-              clipPath: "polygon(0 100%, 50% 30%, 100% 100%)",
+              clipPath: "polygon(0 100%, 50% 25%, 100% 100%)",
               backfaceVisibility: "hidden",
             }}
           />
           {/* Back of flap */}
           <div 
-            className="absolute inset-0 rounded-t-lg"
+            className="absolute inset-0 rounded-t-2xl"
             style={{
               background: "hsl(var(--envelope-inner))",
-              clipPath: "polygon(0 100%, 50% 30%, 100% 100%)",
+              clipPath: "polygon(0 100%, 50% 25%, 100% 100%)",
               backfaceVisibility: "hidden",
               transform: "rotateX(180deg)",
             }}
