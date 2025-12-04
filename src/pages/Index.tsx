@@ -6,9 +6,7 @@ import { Sparkles } from "@/components/Sparkles";
 // ✨ CUSTOMIZE YOUR LETTER HERE ✨
 const LETTER_CONFIG = {
   recipientName: "Chichi",
-  message: `Hello Chichi,
-
-HAPPY BIRTHDAY, BABY!!!!!!
+  message: `HAPPY BIRTHDAY, BABY!!!!!!
 
 I know you don't really like celebrating your birthday, and I completely understand. I feel the same way about mine. But today is your special day, and I can't help but be excited for you. I know we argue sometimes, but I want you to know that I will always choose you. I haven't been certain about many things in my life, but when I met you, I knew you were the girl I wanted to build a future with. We still have a lot ahead of us, but I know we can overcome anything. As long as we're together, we'll break through every challenge.
 
@@ -18,9 +16,7 @@ so I love you because I know no other way than this." — Pablo Neruda
 
 I love you in that same quiet, certain way, simply, deeply, and without conditions. I love you because you bring peace into my life, because you understand me in ways no one else does, and because even during our tough moments, choosing you always feels right. You make my days lighter, and you inspire me to become better every single day.
 
-Mahal na mahal kita, Chi. Happy birthday, baby. I miss you so much.
-
--Ernest Judieanne`,
+Mahal na mahal kita, Chi. Happy birthday, baby. I miss you so much.`,
   audioUrl: "/music/birthday-song.m4a",
 };
 
