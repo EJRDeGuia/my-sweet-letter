@@ -8,15 +8,31 @@ const LETTER_CONFIG = {
   recipientName: "Chichi",
   message: `HAPPY BIRTHDAY, BABY!!!!!!
 
-I know you don't really like celebrating your birthday, and I completely understand. I feel the same way about mine. But today is your special day, and I can't help but be excited for you. I know we argue sometimes, but I want you to know that I will always choose you. I haven't been certain about many things in my life, but when I met you, I knew you were the girl I wanted to build a future with. We still have a lot ahead of us, but I know we can overcome anything. As long as we're together, we'll break through every challenge.
+I know you don’t really like celebrating your birthday, and I feel the same about mine, but today is different. Today is yours. And even if you don’t want a big celebration, I still want to celebrate you. You deserve to feel loved, held, appreciated, and reminded of how special you are, especially to me.
 
-"I love you without knowing how, or when, or from where.
+Sometimes we argue, sometimes we misunderstand each other, but through everything, I want you to remember one thing: I will always choose you. Out of all the uncertainties in my life, loving you has never been one of them. From the moment I met you, I just knew you were the girl I wanted to build something real with, something lasting, something forever.
+
+Remember this song? You shared it with me, and it was so good it got stuck in my head for weeks. Then you posted a story using that song, and my picture was there, even if it was just a little bit. And then you put it on your highlights. I know that highlight is for pictures that make you feel confident and pretty, but I couldn’t help but be so damn giddy knowing I was in there too. That moment meant so much to me in a way I can’t fully explain.
+
+“I love you without knowing how, or when, or from where.
 I love you straightforwardly, without complexities or pride;
-so I love you because I know no other way than this." — Pablo Neruda
+so I love you because I know no other way than this.” — Pablo Neruda
 
-I love you in that same quiet, certain way, simply, deeply, and without conditions. I love you because you bring peace into my life, because you understand me in ways no one else does, and because even during our tough moments, choosing you always feels right. You make my days lighter, and you inspire me to become better every single day.
+I love you like that, quietly, deeply, and truthfully, without conditions, without hesitation. Because you bring peace into my life. Because you see me in ways no one else has ever seen me. Because even during our hard moments, choosing you always feels right. You make my days lighter, my heart calmer, and my world softer.
 
-Mahal na mahal kita, Chi. Happy birthday, baby. I miss you so much.`,
+And baby,
+I want to love you with all that I am, my little Timmy.
+
+I made this letter for you so that whenever you feel sad, lost, or drained, you can read this and remember one thing: you are never alone. I will always be by your side, backing you up, cheering for you, believing in you, holding you through every moment. You have me, fully.
+
+I met you when I least expected to meet someone. Honestly, I had already given up on love before you. I stopped believing in it. I stopped believing in happy endings, in chances, in “forevers.” But then you came, and suddenly everything felt possible again. You revived my idea of love. You revived me.
+
+I will forever be yours,
+and no matter what happens, you will always have your EJ.
+
+Mahal na mahal kita, Chi.
+Happy birthday, baby.
+I miss you more than you know.,
   audioUrl: "/music/birthday-song.m4a",
 };
 
