@@ -107,10 +107,7 @@ export const LetterContent = ({ message, recipientName, onClose }: LetterContent
               style={{ animationDelay: "0.8s", animationFillMode: "forwards" }}
             >
               <p className="font-[var(--font-script)] text-2xl text-[hsl(var(--heart))]">
-                Forever yours,
-              </p>
-              <p className="font-[var(--font-handwritten)] text-xl mt-2 text-muted-foreground">
-                With all my love ♥
+                -Ernest Judieanne ♥
               </p>
             </div>
 
