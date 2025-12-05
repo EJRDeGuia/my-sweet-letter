@@ -75,8 +75,8 @@ const Index = () => {
 
         {/* Main content */}
         <div className="relative z-10 flex flex-col items-center justify-center px-4">
-          <h1 className="font-[var(--font-script)] text-3xl sm:text-4xl md:text-5xl text-[hsl(var(--heart))] mb-12 text-center animate-float-slow">
-            Happy Birthday {LETTER_CONFIG.recipientName} ♥
+          <h1 className="font-[var(--font-script)] text-3xl sm:text-4xl md:text-5xl text-foreground mb-12 text-center px-6 py-3 bg-background/80 backdrop-blur-sm rounded-2xl shadow-lg">
+            Happy Birthday {LETTER_CONFIG.recipientName} <span className="text-[hsl(var(--heart))]">♥</span>
           </h1>
 
           <FloatingEnvelope
