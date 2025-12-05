@@ -1,3 +1,4 @@
+import { useEffect, useState, useRef } from "react";
 import cupcake from "@/assets/collage/cupcake.png";
 import timmyTeddy from "@/assets/collage/timmy-teddy.png";
 import timmyThumbs from "@/assets/collage/timmy-thumbs.png";
@@ -10,41 +11,75 @@ import timmyBag from "@/assets/collage/timmy-bag.png";
 import timmyChristmas from "@/assets/collage/timmy-christmas.png";
 
 const collageImages = [
-  // Top row
-  { src: timmyFace, alt: "Timmy face", className: "absolute top-[2%] left-[5%] w-28 sm:w-40 md:w-48", style: { transform: "rotate(-8deg)", zIndex: 15 } },
-  { src: happyBirthday, alt: "Happy Birthday", className: "absolute top-[3%] left-[30%] w-36 sm:w-48 md:w-56", style: { transform: "rotate(3deg)", zIndex: 20 } },
-  { src: timmyPig, alt: "Timmy and pig", className: "absolute top-[5%] right-[5%] w-28 sm:w-36 md:w-44", style: { transform: "rotate(10deg)", zIndex: 18 } },
+  // Top left corner
+  { src: timmyFace, alt: "Timmy face", baseX: 2, baseY: 2, size: "w-36 sm:w-48 md:w-56", rotation: -8, depth: 0.02 },
+  { src: timmyTeddy, alt: "Timmy with teddy", baseX: 18, baseY: 5, size: "w-32 sm:w-44 md:w-52", rotation: 6, depth: 0.03 },
   
-  // Upper middle row
-  { src: timmyTeddy, alt: "Timmy with teddy", className: "absolute top-[20%] left-[2%] w-32 sm:w-40 md:w-48", style: { transform: "rotate(5deg)", zIndex: 12 } },
-  { src: cupcake, alt: "Cupcake", className: "absolute top-[18%] right-[8%] w-24 sm:w-32 md:w-40", style: { transform: "rotate(-6deg)", zIndex: 14 } },
+  // Top right corner
+  { src: happyBirthday, alt: "Happy Birthday", baseX: 65, baseY: 3, size: "w-40 sm:w-52 md:w-64", rotation: 3, depth: 0.015 },
+  { src: timmyPig, alt: "Timmy and pig", baseX: 82, baseY: 8, size: "w-32 sm:w-44 md:w-52", rotation: 10, depth: 0.025 },
   
-  // Middle row - sides only (envelope area in center)
-  { src: timmyThumbs, alt: "Timmy", className: "absolute top-[40%] left-[3%] w-28 sm:w-36 md:w-44", style: { transform: "rotate(-4deg)", zIndex: 16 } },
-  { src: timmyBag, alt: "Timmy with bag", className: "absolute top-[45%] right-[3%] w-28 sm:w-36 md:w-44", style: { transform: "rotate(7deg)", zIndex: 13 } },
+  // Left side
+  { src: timmyThumbs, alt: "Timmy", baseX: 0, baseY: 30, size: "w-36 sm:w-48 md:w-56", rotation: -4, depth: 0.02 },
+  { src: cupcake, alt: "Cupcake", baseX: 5, baseY: 55, size: "w-28 sm:w-36 md:w-44", rotation: 8, depth: 0.035 },
   
-  // Lower middle row
-  { src: timmyChristmas, alt: "Timmy christmas", className: "absolute bottom-[22%] left-[8%] w-28 sm:w-36 md:w-44", style: { transform: "rotate(8deg)", zIndex: 11 } },
-  { src: timmyYellow, alt: "Timmy yellow", className: "absolute bottom-[25%] right-[5%] w-28 sm:w-36 md:w-44", style: { transform: "rotate(-5deg)", zIndex: 17 } },
+  // Right side
+  { src: timmyBag, alt: "Timmy with bag", baseX: 80, baseY: 35, size: "w-32 sm:w-44 md:w-52", rotation: 7, depth: 0.025 },
+  { src: timmyYellow, alt: "Timmy yellow", baseX: 85, baseY: 60, size: "w-32 sm:w-44 md:w-52", rotation: -5, depth: 0.03 },
   
-  // Bottom row
-  { src: timmyCake, alt: "Timmy with cake", className: "absolute bottom-[2%] left-[15%] w-32 sm:w-44 md:w-52", style: { transform: "rotate(-3deg)", zIndex: 19 } },
-  { src: timmyFace, alt: "Timmy face 2", className: "absolute bottom-[5%] right-[15%] w-28 sm:w-36 md:w-44", style: { transform: "rotate(6deg) scaleX(-1)", zIndex: 10 } },
+  // Bottom left
+  { src: timmyChristmas, alt: "Timmy christmas", baseX: 0, baseY: 75, size: "w-36 sm:w-48 md:w-56", rotation: 8, depth: 0.02 },
+  { src: timmyCake, alt: "Timmy with cake", baseX: 20, baseY: 80, size: "w-40 sm:w-52 md:w-60", rotation: -3, depth: 0.015 },
+  
+  // Bottom right
+  { src: timmyFace, alt: "Timmy face 2", baseX: 75, baseY: 78, size: "w-36 sm:w-48 md:w-56", rotation: 6, depth: 0.025, flip: true },
+  { src: timmyPig, alt: "Timmy pig 2", baseX: 55, baseY: 85, size: "w-32 sm:w-40 md:w-48", rotation: -8, depth: 0.03 },
+  
+  // Fill gaps - additional images
+  { src: cupcake, alt: "Cupcake 2", baseX: 38, baseY: 0, size: "w-24 sm:w-32 md:w-40", rotation: -5, depth: 0.04 },
+  { src: timmyTeddy, alt: "Timmy teddy 2", baseX: 92, baseY: 45, size: "w-28 sm:w-36 md:w-44", rotation: 12, depth: 0.02, flip: true },
+  { src: timmyThumbs, alt: "Timmy 2", baseX: 45, baseY: 88, size: "w-28 sm:w-36 md:w-44", rotation: 4, depth: 0.035, flip: true },
 ];
 
 export const BackgroundCollage = () => {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      setMousePos({
+        x: (e.clientX - centerX) / centerX,
+        y: (e.clientY - centerY) / centerY,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {collageImages.map((img, index) => (
-        <img
-          key={index}
-          src={img.src}
-          alt={img.alt}
-          className={`${img.className} object-contain drop-shadow-lg opacity-90`}
-          style={img.style}
-          draggable={false}
-        />
-      ))}
+    <div ref={containerRef} className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+      {collageImages.map((img, index) => {
+        const parallaxX = mousePos.x * img.depth * 100;
+        const parallaxY = mousePos.y * img.depth * 100;
+        
+        return (
+          <img
+            key={index}
+            src={img.src}
+            alt={img.alt}
+            className={`absolute ${img.size} object-contain drop-shadow-lg opacity-85 transition-transform duration-700 ease-out`}
+            style={{
+              left: `${img.baseX}%`,
+              top: `${img.baseY}%`,
+              transform: `translate(${parallaxX}px, ${parallaxY}px) rotate(${img.rotation}deg)${img.flip ? " scaleX(-1)" : ""}`,
+            }}
+            draggable={false}
+          />
+        );
+      })}
     </div>
   );
 };
