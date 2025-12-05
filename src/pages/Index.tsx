@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { FloatingEnvelope } from "@/components/FloatingEnvelope";
 import { MusicToggle } from "@/components/MusicToggle";
 import { Sparkles } from "@/components/Sparkles";
+import { BackgroundCollage } from "@/components/BackgroundCollage";
 
 // ✨ CUSTOMIZE YOUR LETTER HERE ✨
 const LETTER_CONFIG = {
@@ -65,6 +66,9 @@ const Index = () => {
             `,
           }}
         />
+
+        {/* Background Collage */}
+        <BackgroundCollage />
 
         {/* Sparkles */}
         <Sparkles />

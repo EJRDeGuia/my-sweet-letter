@@ -1,55 +1,10 @@
 import { useState, useRef } from "react";
 import { LetterContent } from "./LetterContent";
 
-// Import collage images
-import cupcake from "@/assets/collage/cupcake.png";
-import timmyTeddy from "@/assets/collage/timmy-teddy.png";
-import timmyThumbs from "@/assets/collage/timmy-thumbs.png";
-import happyBirthday from "@/assets/collage/happy-birthday.png";
-import timmyYellow from "@/assets/collage/timmy-yellow.png";
-import timmyCake from "@/assets/collage/timmy-cake.png";
-import timmyPig from "@/assets/collage/timmy-pig.png";
-import timmyFace from "@/assets/collage/timmy-face.png";
-import timmyBag from "@/assets/collage/timmy-bag.png";
-import timmyChristmas from "@/assets/collage/timmy-christmas.png";
-
 interface FloatingEnvelopeProps {
   message: string;
   recipientName: string;
 }
-
-// Collage image configuration for easy customization
-const collageImages = [
-  // Timmy face - BEHIND Happy Birthday at top center
-  { src: timmyFace, alt: "Timmy face", className: "absolute top-0 left-1/2 w-32 sm:w-44", style: { transform: "translateX(-50%) rotate(-3deg)", zIndex: 30 } },
-  
-  // Happy Birthday - prominent at top (in front of Timmy face)
-  { src: happyBirthday, alt: "Happy Birthday", className: "absolute top-6 left-1/2 w-44 sm:w-56", style: { transform: "translateX(-50%) rotate(-1deg)", zIndex: 40 } },
-  
-  // Timmy with teddy - top left
-  { src: timmyTeddy, alt: "Timmy with teddy", className: "absolute top-2 left-2 w-28 sm:w-36", style: { transform: "rotate(6deg)", zIndex: 25 } },
-  
-  // Timmy pig - top right (moved more inside)
-  { src: timmyPig, alt: "Timmy and pig", className: "absolute top-4 right-4 w-28 sm:w-36", style: { transform: "rotate(-10deg)", zIndex: 22 } },
-  
-  // Timmy thumbs up - center left
-  { src: timmyThumbs, alt: "Timmy", className: "absolute top-[38%] left-[2%] w-32 sm:w-40", style: { transform: "rotate(3deg)", zIndex: 35 } },
-  
-  // Cupcake - center right (moved more inside)
-  { src: cupcake, alt: "Cupcake", className: "absolute top-[40%] right-[12%] w-28 sm:w-36", style: { transform: "rotate(8deg)", zIndex: 28 } },
-  
-  // Timmy with bag - middle center-left
-  { src: timmyBag, alt: "Timmy with bag", className: "absolute top-[60%] left-[18%] w-28 sm:w-32", style: { transform: "rotate(-5deg)", zIndex: 20 } },
-  
-  // Timmy christmas - bottom right (moved inside)
-  { src: timmyChristmas, alt: "Timmy christmas", className: "absolute bottom-2 right-4 w-28 sm:w-32", style: { transform: "rotate(10deg)", zIndex: 18 } },
-  
-  // Timmy yellow - bottom left
-  { src: timmyYellow, alt: "Timmy yellow", className: "absolute bottom-0 left-2 w-28 sm:w-36", style: { transform: "rotate(-5deg)", zIndex: 32 } },
-  
-  // Timmy with cake - bottom center, large
-  { src: timmyCake, alt: "Timmy with cake", className: "absolute bottom-0 left-1/2 w-36 sm:w-48", style: { transform: "translateX(-50%) rotate(2deg)", zIndex: 38 } },
-];
 
 export const FloatingEnvelope = ({ message, recipientName }: FloatingEnvelopeProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -132,9 +87,9 @@ export const FloatingEnvelope = ({ message, recipientName }: FloatingEnvelopePro
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Main envelope container - larger to accommodate collage */}
+      {/* Main envelope container */}
       <div
-        className={`relative w-80 h-60 sm:w-[480px] sm:h-[340px] transition-transform duration-300 ${
+        className={`relative w-72 h-52 sm:w-96 sm:h-72 transition-transform duration-300 ${
           !isDragging ? "animate-float" : ""
         }`}
         style={{
@@ -158,30 +113,16 @@ export const FloatingEnvelope = ({ message, recipientName }: FloatingEnvelopePro
           {/* Subtle decorative border */}
           <div className="absolute inset-3 border border-dashed border-card/20 rounded-xl pointer-events-none" />
           
-          {/* ============ COLLAGE IMAGES ============ */}
-          {collageImages.map((img, index) => (
-            <img 
-              key={index}
-              src={img.src} 
-              alt={img.alt} 
-              className={`${img.className} object-contain drop-shadow-lg hover:scale-105 transition-transform duration-200`}
-              style={img.style}
-              draggable={false}
-            />
-          ))}
-
-          {/* Subtle heart accents scattered */}
-          <svg className="absolute top-[30%] right-[15%] w-3 h-3 text-[hsl(var(--heart))]/40 animate-pulse-soft" style={{ zIndex: 5 }} viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
-          <svg className="absolute bottom-[40%] left-[25%] w-2.5 h-2.5 text-[hsl(var(--heart))]/30 animate-pulse-soft" style={{ zIndex: 5, animationDelay: "0.7s" }} viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
-          
-          {/* Tiny star accents */}
-          <svg className="absolute top-[60%] right-[30%] w-2 h-2 text-[hsl(var(--sparkle-1))]/50" style={{ zIndex: 5 }} viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-          </svg>
+          {/* Center heart */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <svg 
+              viewBox="0 0 24 24" 
+              fill="hsl(var(--heart))" 
+              className="w-16 h-16 sm:w-24 sm:h-24 drop-shadow-lg animate-pulse-soft"
+            >
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </div>
         </div>
 
         {/* Envelope flap */}
