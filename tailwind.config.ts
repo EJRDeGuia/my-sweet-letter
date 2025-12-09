@@ -91,6 +91,11 @@ export default {
 			'fade-in-up': {
 				'0%': { opacity: '0', transform: 'translateY(20px)' },
 				'100%': { opacity: '1', transform: 'translateY(0)' }
+			},
+			'shake': {
+				'0%, 100%': { transform: 'translateX(0)' },
+				'25%': { transform: 'translateX(-5px)' },
+				'75%': { transform: 'translateX(5px)' }
 			}
 		},
 		animation: {
@@ -100,7 +105,8 @@ export default {
 			'float-slow': 'float-slow 8s ease-in-out infinite',
 			'sparkle': 'sparkle 4s ease-in-out infinite',
 			'pulse-soft': 'pulse-soft 4s ease-in-out infinite',
-			'fade-in-up': 'fade-in-up 0.6s ease-out forwards'
+			'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
+			'shake': 'shake 0.4s ease-in-out'
 		},
   		boxShadow: {
   			'2xs': 'var(--shadow-2xs)',
