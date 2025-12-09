@@ -9,13 +9,18 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [isShaking, setIsShaking] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === CORRECT_PASSWORD) {
       localStorage.setItem("letters-auth", "true");
-      navigate("/archive");
+      setIsTransitioning(true);
+      // Wait for animation to complete before navigating
+      setTimeout(() => {
+        navigate("/archive");
+      }, 800);
     } else {
       setError(true);
       setIsShaking(true);
@@ -46,7 +51,24 @@ const Login = () => {
         {/* Sparkles */}
         <Sparkles />
 
-        <div className="relative z-10 w-full max-w-md">
+        {/* Heart transition overlay */}
+        <div
+          className={`fixed inset-0 z-50 flex items-center justify-center pointer-events-none transition-opacity duration-300 ${
+            isTransitioning ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="hsl(var(--heart))"
+            className={`transition-all duration-700 ease-out ${
+              isTransitioning ? "w-[300vmax] h-[300vmax]" : "w-16 h-16"
+            }`}
+          >
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
+
+        <div className={`relative z-10 w-full max-w-md transition-all duration-500 ${isTransitioning ? "opacity-0 scale-95" : "opacity-100 scale-100"}`}>
           {/* Card container */}
           <div className="relative p-8 sm:p-10 rounded-[2rem] bg-card/80 backdrop-blur-sm border-2 border-border shadow-2xl">
             {/* Paper texture */}
@@ -100,6 +122,7 @@ const Login = () => {
                       setError(false);
                     }}
                     placeholder="• • • • • •"
+                    disabled={isTransitioning}
                     className={`w-full px-5 py-4 rounded-2xl bg-background/50 border-2 text-center font-[var(--font-handwritten)] text-xl tracking-widest focus:outline-none focus:ring-2 focus:ring-[hsl(var(--heart))/30] transition-all placeholder:text-muted-foreground/40 ${
                       error
                         ? "border-destructive"
@@ -118,7 +141,8 @@ const Login = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-2xl bg-[hsl(var(--heart))] text-white font-[var(--font-handwritten)] text-xl hover:brightness-110 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
+                  disabled={isTransitioning}
+                  className="w-full py-4 rounded-2xl bg-[hsl(var(--heart))] text-white font-[var(--font-handwritten)] text-xl hover:brightness-110 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70"
                 >
                   Open My Letters
                 </button>
