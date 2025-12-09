@@ -1,14 +1,16 @@
 import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Cake, Heart, Star, Gift, Sparkles, Sun } from "lucide-react";
+import { Cake, Heart } from "lucide-react";
+import { Sparkles } from "@/components/Sparkles";
 
 // Define your letters here - easy to add more in the future
 const LETTERS = [
   {
     id: "birthday",
     title: "Birthday Letter",
-    description: "December 5, 2024",
+    subtitle: "December 5, 2024",
+    description: "A letter for your special day",
     icon: Cake,
     color: "hsl(var(--heart))",
     path: "/letter/birthday",
@@ -17,7 +19,8 @@ const LETTERS = [
   // {
   //   id: "anniversary",
   //   title: "Anniversary Letter",
-  //   description: "Coming soon...",
+  //   subtitle: "Coming soon...",
+  //   description: "Celebrating us",
   //   icon: Heart,
   //   color: "hsl(var(--sparkle-1))",
   //   path: "/letter/anniversary",
@@ -46,73 +49,104 @@ const Archive = () => {
         <meta name="description" content="A private archive of love letters" />
       </Helmet>
 
-      <main className="min-h-screen bg-background px-4 py-8 sm:py-12">
+      <main className="min-h-screen bg-background px-4 py-10 sm:py-16 overflow-hidden">
         {/* Soft gradient overlay */}
         <div
-          className="fixed inset-0 opacity-40 pointer-events-none"
+          className="fixed inset-0 pointer-events-none"
           style={{
             background: `
-              radial-gradient(ellipse at 20% 30%, hsl(var(--sparkle-1) / 0.15) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 70%, hsl(var(--heart) / 0.1) 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 50%, hsl(var(--sparkle-3) / 0.1) 0%, transparent 60%)
+              radial-gradient(ellipse at 20% 30%, hsl(var(--sparkle-1) / 0.2) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 70%, hsl(var(--heart) / 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 50%, hsl(var(--sparkle-3) / 0.12) 0%, transparent 60%)
             `,
           }}
         />
 
-        <div className="relative z-10 max-w-2xl mx-auto">
+        {/* Sparkles */}
+        <Sparkles />
+
+        <div className="relative z-10 max-w-xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-10">
-            <div className="flex justify-center mb-4">
-              <Heart className="w-10 h-10 text-[hsl(var(--heart))] fill-current" />
+          <div className="text-center mb-12">
+            {/* Animated heart */}
+            <div className="flex justify-center mb-5">
+              <div className="relative">
+                <div className="absolute inset-0 blur-2xl opacity-40">
+                  <Heart className="w-16 h-16 text-[hsl(var(--heart))] fill-current" />
+                </div>
+                <Heart className="w-14 h-14 text-[hsl(var(--heart))] fill-current relative z-10 animate-pulse-soft" />
+              </div>
             </div>
-            <h1 className="font-[var(--font-script)] text-4xl sm:text-5xl text-foreground mb-2">
+            <h1 className="font-[var(--font-script)] text-5xl sm:text-6xl text-foreground mb-3">
               My Letters
             </h1>
-            <p className="text-muted-foreground font-[var(--font-handwritten)] text-lg">
+            <p className="text-muted-foreground font-[var(--font-handwritten)] text-xl">
               For you, with all my love ♥
             </p>
           </div>
 
           {/* Letter Cards */}
-          <div className="grid gap-4 sm:gap-6">
-            {LETTERS.map((letter) => {
+          <div className="grid gap-5">
+            {LETTERS.map((letter, index) => {
               const IconComponent = letter.icon;
               return (
                 <Link
                   key={letter.id}
                   to={letter.path}
-                  className="group block"
+                  className="group block animate-fade-in-up"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="relative p-6 rounded-3xl bg-card border-2 border-border hover:border-[hsl(var(--heart))/50] transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="relative p-6 sm:p-8 rounded-[2rem] bg-card/80 backdrop-blur-sm border-2 border-border hover:border-[hsl(var(--heart))] transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 overflow-hidden">
                     {/* Paper texture */}
-                    <div className="absolute inset-0 rounded-3xl opacity-20 mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuNSIvPjwvc3ZnPg==')]" />
+                    <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuNSIvPjwvc3ZnPg==')]" />
                     
-                    <div className="relative flex items-center gap-5">
-                      {/* Icon */}
-                      <div
-                        className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
-                        style={{ backgroundColor: `${letter.color}20` }}
-                      >
-                        <IconComponent
-                          className="w-8 h-8 transition-transform duration-300"
-                          style={{ color: letter.color }}
+                    {/* Decorative gradient on hover */}
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                      style={{
+                        background: `radial-gradient(circle at 30% 50%, ${letter.color}15 0%, transparent 60%)`
+                      }}
+                    />
+
+                    <div className="relative flex items-center gap-5 sm:gap-6">
+                      {/* Icon container */}
+                      <div className="relative flex-shrink-0">
+                        <div
+                          className="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                          style={{ 
+                            backgroundColor: `${letter.color}15`,
+                            boxShadow: `0 8px 24px ${letter.color}20`
+                          }}
+                        >
+                          <IconComponent
+                            className="w-9 h-9 sm:w-10 sm:h-10 transition-transform duration-300"
+                            style={{ color: letter.color }}
+                          />
+                        </div>
+                        {/* Decorative ring */}
+                        <div 
+                          className="absolute inset-0 rounded-2xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-110"
+                          style={{ borderColor: `${letter.color}30` }}
                         />
                       </div>
 
                       {/* Content */}
                       <div className="flex-1 min-w-0">
-                        <h2 className="font-[var(--font-script)] text-2xl text-foreground group-hover:text-[hsl(var(--heart))] transition-colors">
+                        <h2 className="font-[var(--font-script)] text-2xl sm:text-3xl text-foreground group-hover:text-[hsl(var(--heart))] transition-colors">
                           {letter.title}
                         </h2>
-                        <p className="text-muted-foreground font-[var(--font-handwritten)] text-sm mt-1">
+                        <p className="text-muted-foreground font-[var(--font-handwritten)] text-base mt-1">
                           {letter.description}
+                        </p>
+                        <p className="text-muted-foreground/60 font-[var(--font-handwritten)] text-sm mt-0.5">
+                          {letter.subtitle}
                         </p>
                       </div>
 
                       {/* Arrow */}
-                      <div className="flex-shrink-0 text-muted-foreground group-hover:text-[hsl(var(--heart))] transition-all duration-300 group-hover:translate-x-1">
-                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <div className="flex-shrink-0 text-muted-foreground group-hover:text-[hsl(var(--heart))] transition-all duration-300 group-hover:translate-x-2">
+                        <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
                       </div>
                     </div>
@@ -122,12 +156,22 @@ const Archive = () => {
             })}
           </div>
 
+          {/* Empty state hint for future */}
+          <div className="mt-8 text-center">
+            <p className="text-muted-foreground/50 font-[var(--font-handwritten)] text-sm italic">
+              More letters coming soon... ♥
+            </p>
+          </div>
+
           {/* Logout button */}
           <div className="mt-12 text-center">
             <button
               onClick={handleLogout}
-              className="text-muted-foreground hover:text-foreground font-[var(--font-handwritten)] text-sm transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground font-[var(--font-handwritten)] text-sm transition-all hover:shadow-md"
             >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
               Lock my letters
             </button>
           </div>
