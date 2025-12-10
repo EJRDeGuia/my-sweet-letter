@@ -9,7 +9,7 @@ const LETTERS = [
   {
     id: "birthday",
     title: "Birthday Letter",
-    subtitle: "December 5, 2024",
+    subtitle: "December 5",
     description: "A letter for your special day",
     icon: Cake,
     color: "hsl(var(--heart))",
@@ -91,15 +91,15 @@ const Archive = () => {
         <div className={`relative z-10 max-w-xl mx-auto transition-all duration-500 delay-300 ${isEntering ? "opacity-0 scale-95" : "opacity-100 scale-100"}`}>
           {/* Header */}
           <div className="text-center mb-12">
-            {/* Animated heart */}
-            <div className="flex justify-center mb-5">
+            {/* Animated heart - easter egg */}
+            <Link to="/reasons" className="flex justify-center mb-5 group cursor-pointer">
               <div className="relative">
-                <div className="absolute inset-0 blur-2xl opacity-40">
+                <div className="absolute inset-0 blur-2xl opacity-40 group-hover:opacity-60 transition-opacity">
                   <Heart className="w-16 h-16 text-[hsl(var(--heart))] fill-current" />
                 </div>
-                <Heart className="w-14 h-14 text-[hsl(var(--heart))] fill-current relative z-10 animate-pulse-soft" />
+                <Heart className="w-14 h-14 text-[hsl(var(--heart))] fill-current relative z-10 transition-transform group-hover:scale-110" />
               </div>
-            </div>
+            </Link>
             <h1 className="font-[var(--font-script)] text-5xl sm:text-6xl text-foreground mb-3">
               My Letters
             </h1>
