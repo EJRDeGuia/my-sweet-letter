@@ -51,24 +51,26 @@ const Login = () => {
         {/* Sparkles */}
         <Sparkles />
 
-        {/* Visible heart that expands on login */}
-        <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+        {/* Heart from envelope that expands on login */}
+        <div 
+          className={`fixed inset-0 z-50 flex items-center justify-center pointer-events-none transition-opacity duration-300 ${
+            isTransitioning ? "opacity-100" : "opacity-0"
+          }`}
+        >
           <svg
             viewBox="0 0 24 24"
             fill="hsl(var(--heart))"
-            className={`transition-all ease-out ${
-              isTransitioning 
-                ? "w-[300vmax] h-[300vmax] duration-700" 
-                : "w-24 h-24 duration-300 animate-pulse-soft drop-shadow-[0_0_30px_hsl(var(--heart)/0.5)]"
+            className={`transition-all duration-700 ease-out ${
+              isTransitioning ? "w-[300vmax] h-[300vmax]" : "w-8 h-8"
             }`}
           >
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
           </svg>
         </div>
 
-        <div className={`relative z-10 w-full max-w-md transition-all duration-500 ${isTransitioning ? "opacity-0 scale-95" : "opacity-100 scale-100"}`}>
+        <div className={`relative z-10 w-full max-w-md transition-all duration-500 ${isTransitioning ? "opacity-0 scale-95" : "opacity-100 scale-100 animate-fade-in"}`}>
           {/* Card container */}
-          <div className="relative p-8 sm:p-10 rounded-[2rem] bg-card/80 backdrop-blur-sm border-2 border-border shadow-2xl">
+          <div className="relative p-8 sm:p-10 rounded-[2rem] bg-card/80 backdrop-blur-sm border-2 border-border shadow-2xl animate-scale-in">
             {/* Paper texture */}
             <div className="absolute inset-0 rounded-[2rem] opacity-20 mix-blend-overlay pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuNSIvPjwvc3ZnPg==')]" />
 
@@ -94,7 +96,7 @@ const Login = () => {
                       <rect x="2" y="4" width="20" height="16" rx="3" fill="hsl(var(--heart) / 0.15)" />
                       <path d="M22 7l-10 7L2 7" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                    <svg viewBox="0 0 24 24" fill="hsl(var(--heart))" className="w-8 h-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 animate-pulse-soft">
+                    <svg viewBox="0 0 24 24" fill="hsl(var(--heart))" className="w-8 h-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3">
                       <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                     </svg>
                   </div>
