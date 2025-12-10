@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Cake, Heart } from "lucide-react";
@@ -29,12 +29,18 @@ const LETTERS = [
 
 const Archive = () => {
   const navigate = useNavigate();
+  const [isEntering, setIsEntering] = useState(true);
 
   useEffect(() => {
     const isAuth = localStorage.getItem("letters-auth");
     if (!isAuth) {
       navigate("/");
     }
+    // Trigger shrink animation after mount
+    const timer = setTimeout(() => {
+      setIsEntering(false);
+    }, 100);
+    return () => clearTimeout(timer);
   }, [navigate]);
 
   const handleLogout = () => {
@@ -65,7 +71,24 @@ const Archive = () => {
         {/* Sparkles */}
         <Sparkles />
 
-        <div className="relative z-10 max-w-xl mx-auto">
+        {/* Heart shrink transition overlay */}
+        <div 
+          className={`fixed inset-0 z-50 flex items-center justify-center pointer-events-none transition-all duration-700 ease-out ${
+            isEntering ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="hsl(var(--heart))"
+            className={`transition-all duration-700 ease-out ${
+              isEntering ? "w-[300vmax] h-[300vmax]" : "w-24 h-24"
+            }`}
+          >
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
+
+        <div className={`relative z-10 max-w-xl mx-auto transition-all duration-500 delay-300 ${isEntering ? "opacity-0 scale-95" : "opacity-100 scale-100"}`}>
           {/* Header */}
           <div className="text-center mb-12">
             {/* Animated heart */}
