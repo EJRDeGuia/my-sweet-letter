@@ -81,7 +81,7 @@ export const LetterContent = ({ message, recipientName, onClose }: LetterContent
               className="text-center text-muted-foreground/70 mb-8 font-[var(--font-handwritten)] text-lg tracking-wide opacity-0 animate-fade-in-up"
               style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}
             >
-              December 5, 2024
+              December 5, 2025
             </p>
 
             {/* Greeting */}
