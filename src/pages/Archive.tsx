@@ -15,16 +15,15 @@ const LETTERS = [
     color: "hsl(var(--heart))",
     path: "/letter/birthday",
   },
-  // Add more letters here in the future:
-  // {
-  //   id: "anniversary",
-  //   title: "Anniversary Letter",
-  //   subtitle: "Coming soon...",
-  //   description: "Celebrating us",
-  //   icon: Heart,
-  //   color: "hsl(var(--sparkle-1))",
-  //   path: "/letter/anniversary",
-  // },
+  {
+    id: "december-15",
+    title: "December 15, 2025",
+    subtitle: "A special letter",
+    description: "For you, with love",
+    icon: Heart,
+    color: "hsl(var(--sparkle-1))",
+    path: "/letter/december-15",
+  },
 ];
 
 const Archive = () => {

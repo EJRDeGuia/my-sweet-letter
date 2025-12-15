@@ -4,9 +4,10 @@ import { LetterContent } from "./LetterContent";
 interface FloatingEnvelopeProps {
   message: string;
   recipientName: string;
+  date?: string;
 }
 
-export const FloatingEnvelope = ({ message, recipientName }: FloatingEnvelopeProps) => {
+export const FloatingEnvelope = ({ message, recipientName, date }: FloatingEnvelopeProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [dragProgress, setDragProgress] = useState(0);
@@ -72,7 +73,7 @@ export const FloatingEnvelope = ({ message, recipientName }: FloatingEnvelopePro
   };
 
   if (isOpen) {
-    return <LetterContent message={message} recipientName={recipientName} onClose={handleClose} />;
+    return <LetterContent message={message} recipientName={recipientName} date={date} onClose={handleClose} />;
   }
 
   return (

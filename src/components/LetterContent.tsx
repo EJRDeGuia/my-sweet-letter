@@ -4,10 +4,11 @@ import { X } from "lucide-react";
 interface LetterContentProps {
   message: string;
   recipientName: string;
+  date?: string;
   onClose: () => void;
 }
 
-export const LetterContent = ({ message, recipientName, onClose }: LetterContentProps) => {
+export const LetterContent = ({ message, recipientName, date = "December 5, 2025", onClose }: LetterContentProps) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -81,7 +82,7 @@ export const LetterContent = ({ message, recipientName, onClose }: LetterContent
               className="text-center text-muted-foreground/70 mb-8 font-[var(--font-handwritten)] text-lg tracking-wide opacity-0 animate-fade-in-up"
               style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}
             >
-              December 5, 2025
+              {date}
             </p>
 
             {/* Greeting */}
