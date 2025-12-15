@@ -18,7 +18,7 @@ const LETTERS = [
   {
     id: "december-15",
     title: "December 15, 2025",
-    subtitle: "A special letter",
+    subtitle: "",
     description: "Im sorry baby. I love you so much.",
     icon: Heart,
     color: "hsl(var(--sparkle-1))",
