@@ -9,12 +9,13 @@ import { ArrowLeft } from "lucide-react";
 
 const LETTER_CONFIG = {
   recipientName: "Chichi",
-  message: `[Your letter content here]
+  message: `I'm sorry for showing up out of nowhere earlier. I acted out of emotion, but I knew that if I didn't come and talk to you, I would regret not trying for the rest of my life. I'm also truly sorry for how I acted yesterday and earlier today. You didn't deserve that version of me, and I take full responsibility for my actions.
 
-Write your heartfelt message for December 15, 2025.
+When you agreed to try again, it overwhelmed me with joy and hope. I know it isn't a guarantee, and I understand that trust and healing take time. I'm not expecting everything to be okay instantly. What matters to me is that we're choosing to take a step forward together, no matter how small, and that alone means everything to me.
 
-With all my love,
-EJ`,
+I want you to know that I am committed to growing—not just for us, but for myself too. I'm willing to listen more, to be patient, and to understand you better even when it's hard. Love is about compromise, effort, and choosing each other every day, and I am willing to do all of that because I believe in what we have. I believe our love can help build us into better people together.
+
+Mahal na mahal kita, chichi. I will always support you and help you achieve anything you dream of, because seeing you happy gives my heart so much warmth and purpose. Thank you for giving us another chance, and thank you for not giving up on me. I promise to do better and to love you with sincerity, respect, and consistency.`,
 
   audioUrl: "/music/birthday-song.m4a",
 };
