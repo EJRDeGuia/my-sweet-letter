@@ -19,7 +19,7 @@ const LETTERS = [
     id: "december-15",
     title: "December 15, 2025",
     subtitle: "A special letter",
-    description: "For you, with love",
+    description: "Im sorry baby. I love you so much.",
     icon: Heart,
     color: "hsl(var(--sparkle-1))",
     path: "/letter/december-15",
