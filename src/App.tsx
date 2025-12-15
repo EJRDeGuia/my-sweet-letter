@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import Archive from "./pages/Archive";
 import BirthdayLetter from "./pages/BirthdayLetter";
+import December15Letter from "./pages/December15Letter";
 import ReasonsILoveYou from "./pages/ReasonsILoveYou";
 import NotFound from "./pages/NotFound";
 
@@ -23,6 +24,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/archive" element={<Archive />} />
             <Route path="/letter/birthday" element={<BirthdayLetter />} />
+            <Route path="/letter/december-15" element={<December15Letter />} />
             <Route path="/reasons" element={<ReasonsILoveYou />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
