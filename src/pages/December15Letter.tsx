@@ -3,8 +3,6 @@ import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FloatingEnvelope } from "@/components/FloatingEnvelope";
 import { MusicToggle } from "@/components/MusicToggle";
-import { Sparkles } from "@/components/Sparkles";
-import { BackgroundCollage } from "@/components/BackgroundCollage";
 import { ArrowLeft } from "lucide-react";
 
 const LETTER_CONFIG = {
@@ -38,26 +36,18 @@ const December15Letter = () => {
       </Helmet>
 
       <main className="min-h-screen relative overflow-hidden flex items-center justify-center">
-        {/* Animated gradient background */}
+        {/* Simple gradient background */}
         <div className="fixed inset-0 bg-background" />
 
-        {/* Soft gradient overlay */}
+        {/* Soft subtle gradient overlay */}
         <div
-          className="fixed inset-0 opacity-50"
+          className="fixed inset-0 opacity-30"
           style={{
             background: `
-              radial-gradient(ellipse at 20% 20%, hsl(var(--sparkle-1) / 0.15) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 80%, hsl(var(--heart) / 0.1) 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 50%, hsl(var(--sparkle-3) / 0.1) 0%, transparent 70%)
+              radial-gradient(ellipse at 50% 50%, hsl(var(--heart) / 0.08) 0%, transparent 60%)
             `,
           }}
         />
-
-        {/* Background Collage */}
-        <BackgroundCollage />
-
-        {/* Sparkles */}
-        <Sparkles />
 
         {/* Back button */}
         <Link
@@ -68,11 +58,12 @@ const December15Letter = () => {
           <span className="font-[var(--font-handwritten)] text-sm">Back</span>
         </Link>
 
-        {/* Main floating envelope */}
+        {/* Main envelope - no floating animation */}
         <FloatingEnvelope
           recipientName={LETTER_CONFIG.recipientName}
           message={LETTER_CONFIG.message}
           date="December 15, 2025"
+          noAnimation
         />
 
         {/* Music toggle */}

@@ -5,9 +5,10 @@ interface FloatingEnvelopeProps {
   message: string;
   recipientName: string;
   date?: string;
+  noAnimation?: boolean;
 }
 
-export const FloatingEnvelope = ({ message, recipientName, date }: FloatingEnvelopeProps) => {
+export const FloatingEnvelope = ({ message, recipientName, date, noAnimation }: FloatingEnvelopeProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [dragProgress, setDragProgress] = useState(0);
@@ -91,7 +92,7 @@ export const FloatingEnvelope = ({ message, recipientName, date }: FloatingEnvel
       {/* Main envelope container */}
       <div
         className={`relative w-72 h-52 sm:w-[380px] sm:h-[280px] transition-transform duration-500 ${
-          !isDragging ? "animate-float" : ""
+          !isDragging && !noAnimation ? "animate-float" : ""
         }`}
         style={{
           transform: isDragging ? `translateY(${-dragProgress * 15}px) scale(${1 + dragProgress * 0.03})` : undefined,
